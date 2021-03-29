@@ -1,24 +1,25 @@
 {% extends "base.html" %}
-{% load static %}
-
-{% block head %}
-{{ block.super }}
-<link rel="stylesheet" type ="text/css" href="{% static 'starter_app/custom.css' %}">
-
-<title>Starter App</title>
-{% endblock %}
 
 
 {% block content %}
 
-<div class="row">
-  <div class="col text-center">
-    <h1>Starter App</h1>
-    <p><a href="{% url 'index'%}">Want to go back?</a></p>
+<div class="d-flex justify-content-center">
+    <div class="p-2">
+        <a href="{% url 'login' %}">
+            <button type="button" class="btn btn-secondary">Log In</button>
+         </a>
+    </div>
+    <div class="p-2">        
+        <a href="{% url 'register' %}">
+            <button type="button" class="btn btn-secondary">Create Account</button>
+        </a>
+    </div>
   </div>
-</div>
   
 
 
 {% endblock %}
+
+
+
 

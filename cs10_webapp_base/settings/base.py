@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'starter_app.apps.StarterAppConfig',
-    'hello_app.apps.HelloAppConfig',
     'crispy_forms',
 ]
 
@@ -128,19 +127,13 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    # BASE_DIR / "static",
+    BASE_DIR / "static",
     "static"
 ]
 
 # The absolute path to the directory where collectstatic will collect static files for deployment.
 STATIC_ROOT = BASE_DIR / 'staticfiles'  #. os.path.join(BASE_DIR, 'staticfiles')
 
-
-
-#Change Login Redirect URL
-
-LOGIN_REDIRECT_URL = "dashboard"
-LOGOUT_REDIRECT_URL = '/' # new
 
 # Heroku: Update database configuration from $DATABASE_URL.
 import dj_database_url
@@ -150,6 +143,10 @@ DATABASES['default'].update(db_from_env)
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# Redirect to home URL after login (Default redirects to /accounts/profile/)
+LOGIN_REDIRECT_URL = '/'
+
 
 LOGGING = {
     'version': 1,
