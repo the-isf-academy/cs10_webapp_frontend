@@ -34,7 +34,19 @@ class CreateAccountView(FormView):
 class TaskDashboard(ListView):
     template_name = 'starter_app/dashboard.html'
     model = Task
-    queryset = Task.objects.order_by("due_date")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        # filter out archieved tasks
+        data = self.model.objects.all().filter(archive=False)
+
+        # filter tasks for user
+        print(self.request.user.get_username())
+        tasks = data.filter(task_assigned_to=self.request.user.username)
+        context['user_tasks'] = tasks.distinct().order_by('-due_date')
+
+        return context
 
 class TaskForm(LoginRequiredMixin,FormView):
     template_name = 'starter_app/taskForm.html'
@@ -46,10 +58,22 @@ class TaskForm(LoginRequiredMixin,FormView):
         # This method is called when valid form data has been POSTed.
         # It should return an HttpResponse.
 
-        if form.instance.task_assigned_to != "":
-            form.instance.task_assigned_by = self.request.user.username
-        
+        if form.instance.task_assigned_to == "":
+            form.instance.task_assigned_to = self.request.user.username
+
         form.instance.task_user = self.request.user
         form.save()
         return super().form_valid(form)
 
+class EditTask(UpdateView):
+    model = Task
+    template_name = 'starter_app/updateTask.html'
+    success_url = '/dashboard'
+
+    fields = [
+        "title",
+        "label",
+        "notes",
+        "archive",
+        "due_date"
+    ]

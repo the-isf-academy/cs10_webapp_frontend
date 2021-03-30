@@ -7,20 +7,20 @@
 <link rel="stylesheet" type ="text/css" href="{% static 'starter_app/custom.css' %}">
 {% endblock %}
 
+
 {% block content %}
 
-
 <div class ="d-flex justify-content-center">
-<div class="p-2 card" id="form-card">
+<div class="card" id="form-card">
     <div class="card-body">
-      <h4 class="card-title">New Task</h4>
+      <h4 class="card-title">{{ task.label }}</h4>
       
         <div class="container" id="form-container">
         <form method="post">
             {% csrf_token %}
             {{ form|crispy }}
         
-            <button type="submit" class="btn btn-dark">Save</button>
+            <button type="submit" class="btn btn-primary">Save</button>
         
         </form>
         </div>

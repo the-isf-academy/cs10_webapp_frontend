@@ -9,4 +9,5 @@ urlpatterns = [
     path('dashboard/', views.TaskDashboard.as_view(), name='dashboard'),
 
     path('newtask/', views.TaskForm.as_view(), name='new-task'),
+    path('updatetask/<int:pk>/', views.EditTask.as_view(), name='update-task'),
 ]
