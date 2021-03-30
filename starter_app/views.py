@@ -42,7 +42,6 @@ class TaskDashboard(ListView):
         data = self.model.objects.all().filter(archive=False)
 
         # filter tasks for user
-        print(self.request.user.get_username())
         tasks = data.filter(task_assigned_to=self.request.user.username)
         context['user_tasks'] = tasks.distinct().order_by('-due_date')
 
