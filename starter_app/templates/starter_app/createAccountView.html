@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+  <div>
+    <form method="post" >
+        {% csrf_token %}
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username"><br>
+        <br>
+        <label for="password">Password:</label><br>
+        <input type="text" id="password" name="password"><br>
+        <br>
+        <label for="password-retype">Retype Password:</label><br>
+        <input type="text" id="password-retype" name="password-retype"><br>
+        <br>
+        <button type="submit" class="btn btn-dark">Save</button>
+    </form>
+  </div>
+{% endblock %}
+

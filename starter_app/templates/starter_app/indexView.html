@@ -3,21 +3,18 @@
 
 {% block content %}
 
-<div class="d-flex justify-content-center">
-    <div class="p-2">
+<div>
+    <div>
         <a href="{% url 'login' %}">
-            <button type="button" class="btn btn-secondary">Log In</button>
+            <button type="button">Log In</button>
          </a>
     </div>
-    <div class="p-2">        
+    <div> 
         <a href="{% url 'register' %}">
-            <button type="button" class="btn btn-secondary">Create Account</button>
+            <button type="button">Create Account</button>
         </a>
     </div>
   </div>
-  
-
-
 {% endblock %}
 
 
