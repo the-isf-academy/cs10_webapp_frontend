@@ -4,7 +4,6 @@ from django.views.generic import ListView, FormView, UpdateView, TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 #models
-from .models import Task
 
 from django.contrib.auth import login, authenticate
 

@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -55,7 +54,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'cs10_webapp_base.urls'
+ROOT_URLCONF = 'project_webapp.urls'
 
 TEMPLATES = [
     {
@@ -73,7 +72,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'cs10_webapp_base.wsgi.application'
+WSGI_APPLICATION = 'project_webapp.wsgi.application'
 
 
 # Database
@@ -128,7 +127,6 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
-    "static"
 ]
 
 # The absolute path to the directory where collectstatic will collect static files for deployment.
