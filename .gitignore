@@ -14,8 +14,8 @@ media
 
 # If your build process includes running collectstatic, then you probably don't need or want to include staticfiles/
 # in your Git repository. Update and uncomment the following line accordingly.
-tasksitesite/staticfiles/*
-!tasksite/staticfiles/.keep
+*/staticfiles/*
+!*/staticfiles/.keep
 
 
 ### Django.Python Stack ###
